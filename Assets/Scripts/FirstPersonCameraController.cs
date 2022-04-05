@@ -29,7 +29,16 @@ public class FirstPersonCameraController : MonoBehaviour
 
         transform.Rotate(new Vector3(0f, mouseLook.x * mouseSpeedX, 0f) * Time.fixedDeltaTime, Space.World);
 
+
         Vector3 rotation = camera.eulerAngles + new Vector3(mouseLook.y * -mouseSpeedY * Time.fixedDeltaTime, 0f, 0f);
+
+        float y = rotation.x;
+        if(y > 180) {
+            y-= 360;
+        }
+
+        y = Mathf.Clamp(y, -45, 65);
+        rotation.x = y;
         camera.rotation = Quaternion.Euler(rotation);
     }
 
