@@ -27,7 +27,7 @@ public class QuoteOrb : MonoBehaviour
     }
     void Update()
     {
-        if(vrCharacter.activeSelf) {
+        if(vrCharacter != null && vrCharacter.activeSelf) {
             if(Vector3.Distance(vrCharacter.transform.position, transform.position) < 5f) {
                 hasCharacter = true;
             } else {
